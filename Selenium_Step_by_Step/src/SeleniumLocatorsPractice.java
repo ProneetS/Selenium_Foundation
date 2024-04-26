@@ -23,8 +23,21 @@ public class SeleniumLocatorsPractice {
 		//adding implicit wait
 		
 		
-		//here I am using CSS Selectors
+		//here I am using CSS Selectors to get the error message
 		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
+		
+		//Forgot password (Linked Text)
+		driver.findElement(By.linkText("Forgot your password?")).click();
+		
+		//Name, email, phone number (Using X-path)
+		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Pete");
+		driver.findElement(By.xpath("input[placeholder='Email']")).sendKeys("Pete@yahoomail.com"); //used CSS Selector
+		driver.findElement(By.xpath("//form/input[3]")).sendKeys("991200120"); //used indexing 
+		
+		//after giving details 
+		
+		
+		
 
 	}
 
