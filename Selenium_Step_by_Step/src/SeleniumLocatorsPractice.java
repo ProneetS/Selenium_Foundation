@@ -31,10 +31,19 @@ public class SeleniumLocatorsPractice {
 		
 		//Name, email, phone number (Using X-path)
 		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Pete");
-		driver.findElement(By.xpath("input[placeholder='Email']")).sendKeys("Pete@yahoomail.com"); //used CSS Selector
+		driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("Pete@yahoomail.com"); //used CSS Selector
 		driver.findElement(By.xpath("//form/input[3]")).sendKeys("991200120"); //used indexing 
 		
-		//after giving details 
+		//after giving details clicking on RESET Login button
+		driver.findElement(By.className("reset-pwd-btn")).click();
+		//it will give below error on this step
+		/*Exception in thread "main" org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button class="reset-pwd-btn">...</button> is not clickable at point (583, 433). Other element would receive the click: <button class="go-to-login-btn">...</button>
+		  (Session info: chrome=124.0.6367.61)*/
+		
+		//grabbing the highlighted text
+		System.out.println(driver.findElement(By.cssSelector("form p")).getText()); //used CSS selector
+		
+		
 		
 		
 		
