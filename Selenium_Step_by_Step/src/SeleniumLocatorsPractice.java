@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumLocatorsPractice {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
 		WebDriver driver = new ChromeDriver();
@@ -28,6 +28,9 @@ public class SeleniumLocatorsPractice {
 		
 		//Forgot password (Linked Text)
 		driver.findElement(By.linkText("Forgot your password?")).click();
+		
+		//putting waiting time to complete the rendering of the page after slide.
+		Thread.sleep(2000);
 		
 		//Name, email, phone number (Using X-path)
 		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Pete");
