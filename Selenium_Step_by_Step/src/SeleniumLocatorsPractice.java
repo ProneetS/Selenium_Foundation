@@ -50,7 +50,9 @@ public class SeleniumLocatorsPractice {
 		driver.findElement(By.cssSelector("#inputUsername")).sendKeys("Dummy101");
 		driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy"); //used regular expression of CSS Selector
 		
-		
+		//selecting the check box
+		driver.findElement(By.id("chkboxOne")).click();
+		driver.findElement(By.id("chkboxTwo")).click();
 		
 		
 		
