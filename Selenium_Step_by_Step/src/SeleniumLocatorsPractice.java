@@ -54,6 +54,9 @@ public class SeleniumLocatorsPractice {
 		driver.findElement(By.id("chkboxOne")).click();
 		driver.findElement(By.id("chkboxTwo")).click();
 		
+		//clicking on submit button
+		driver.findElement(By.xpath("//button[contains(@class,'submit)]")).click(); //regular expression of XPath where 'contains' keyword is used.
+		
 		
 		
 		
