@@ -46,6 +46,14 @@ public class SeleniumLocatorsPractice {
 		//grabbing the highlighted text
 		System.out.println(driver.findElement(By.cssSelector("form p")).getText()); //used CSS selector
 		
+		//signing in with correct user name and password
+		driver.findElement(By.cssSelector("#inputUsername")).sendKeys("Dummy101");
+		driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy"); //used regular expression of CSS Selector
+		
+		
+		
+		
+		
 		
 		
 		
