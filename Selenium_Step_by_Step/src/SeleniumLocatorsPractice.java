@@ -46,6 +46,9 @@ public class SeleniumLocatorsPractice {
 		//grabbing the highlighted text
 		System.out.println(driver.findElement(By.cssSelector("form p")).getText()); //used CSS selector
 		
+		//from parent to child traverse for 'go to login page' button
+		driver.findElement(By.xpath("//div[@class=\"forgot-pwd-btn-conainer\"]/button[1]")).click();
+		
 		//signing in with correct user name and password
 		driver.findElement(By.cssSelector("#inputUsername")).sendKeys("Dummy101");
 		driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy"); //used regular expression of CSS Selector
