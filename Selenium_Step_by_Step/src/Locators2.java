@@ -29,7 +29,7 @@ public class Locators2 {
 		
 		//validating name in login page "Hello *name* " by passing name variable to string
 		Assert.assertEquals(driver.findElement(By.cssSelector("div[class=\"login-container\"] h2")).getText(), "Hello "+name+",");
-		
+		//Concatenation happen with a variable and string.
 		
 		
 
