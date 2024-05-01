@@ -31,7 +31,9 @@ public class Locators2 {
 		Assert.assertEquals(driver.findElement(By.cssSelector("div[class=\"login-container\"] h2")).getText(), "Hello "+name+",");
 		//Concatenation happen with a variable and string.
 		
-		
+		//working on Logout button 
+		driver.findElement(By.xpath("//button[text()='Log Out']")).click();
+		System.out.println("Successfully Logged Out");
 
 	}
 
