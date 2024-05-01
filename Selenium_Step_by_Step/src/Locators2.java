@@ -34,6 +34,9 @@ public class Locators2 {
 		//working on Logout button 
 		driver.findElement(By.xpath("//button[text()='Log Out']")).click();
 		System.out.println("Successfully Logged Out");
+		
+		//close the browser
+		driver.close();
 
 	}
 
