@@ -28,7 +28,7 @@ public class Locators2 {
 		Assert.assertEquals(actualText, "You are successfully logged in.");
 		
 		//validating name in login page "Hello *name* " by passing name variable to string
-		Assert.assertEquals(driver.findElement(By.cssSelector("div[class=\"login-container\"] h2")).getText(), "Hello "+name+" ,");
+		Assert.assertEquals(driver.findElement(By.cssSelector("div[class=\"login-container\"] h2")).getText(), "Hello "+name+",");
 		
 		
 		
