@@ -14,8 +14,9 @@ public class Locators2 {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		
+		String name = "Proneet";
 		//Signing with User ID and Password
-		driver.findElement(By.id("inputUsername")).sendKeys("proneet"); 
+		driver.findElement(By.id("inputUsername")).sendKeys(name); 
 		driver.findElement(By.name("inputPassword")).sendKeys("rahulshettyacademy"); 
 		driver.findElement(By.className("signInBtn")).click(); 
 		
@@ -25,6 +26,9 @@ public class Locators2 {
 		String actualText = driver.findElement(By.tagName("p")).getText();
 		System.out.println(actualText);
 		Assert.assertEquals(actualText, "You are successfully logged in.");
+		
+		//validating name in login page "Hello *name* " by passing name variable to string
+		Assert.assertEquals(driver.findElement(By.cssSelector("div[class=\"login-container\"] h2")).getText(), "Hello "+name+" ,");
 		
 		
 		
