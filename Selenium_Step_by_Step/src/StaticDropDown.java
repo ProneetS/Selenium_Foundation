@@ -22,9 +22,17 @@ public class StaticDropDown {
 		
 		Select dropdown = new Select(staticdropdown);  
 		
-		//select USD from dropdown based upon its index value
+		//select USD from drop down based upon its index value
 		dropdown.selectByIndex(3);
 		//need to confirm whether USD is selected or not.
+		System.out.println(dropdown.getFirstSelectedOption().getText());
+		
+		//Select the drop down based upon visible text.
+		dropdown.selectByVisibleText("AED");
+		System.out.println(dropdown.getFirstSelectedOption().getText());
+		
+		//select the drop down by value
+		dropdown.selectByValue("INR");
 		System.out.println(dropdown.getFirstSelectedOption().getText());
 		
 		
