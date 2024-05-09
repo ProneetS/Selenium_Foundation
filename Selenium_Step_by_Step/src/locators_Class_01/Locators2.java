@@ -1,4 +1,4 @@
-package Locators;
+package locators_Class_01;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
