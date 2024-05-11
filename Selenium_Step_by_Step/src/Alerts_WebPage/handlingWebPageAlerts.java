@@ -1,4 +1,4 @@
-package webPageAlerts;
+package Alerts_WebPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
