@@ -69,3 +69,19 @@ public class endToEndFlow {
 	}
 
 }
+
+
+/*E2E Work flow*/
+/*--------------------------------------------------------------*/
+
+
+/*Task: 
+1. Select “From” Option City   “Jharsuguda”
+2. Select “To” Option City  “Delhi”
+3. Select the current date 
+4. select the 4 number of Adults and 3 number of Child in passengers Tab
+5. Validate the number of adults and child selected by printing the value in console.
+6. click on “Family and Friend” check box
+7. click on search button
+8. Make sure that “return date” is disabled before clicking on “search button”
+*/
