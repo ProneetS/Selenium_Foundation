@@ -10,35 +10,50 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AddToCart {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		//invoking the chrome browser
 		WebDriver driver = new ChromeDriver();
 		
-		//visit the url
-		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
-		
 		//declaring vegetables array that we need
 		String[] veggies = {"Cucumber", "Brocolli", "Beetroot"};
+		int count = 0;
+		
+		//visit the url
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		Thread.sleep(3000);
+		
+		
 		
 		//storing all the items to a list
-		List<WebElement> products = driver.findElements(By.className("h4.product-name"));
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
 		
 		//iterating through all the product to find the location/index of cucumber
 		for(int i = 0; i < products.size(); i++) {
-			String name = products.get(i).getText();
+			
+			//Format the vegetable name from “Brocolli – 1 Kg” to “Brocolli” using split() method
+			String[] name = products.get(i).getText().split("-");
+			
+			//removing extra space after the actual veggie name.
+			String formattedName = name[0].trim();
 			
 			//converting array to array-list in run time
 			List itemsNeededList = Arrays.asList(veggies);
 			
 			
 			//if the name that we are getting is present in the list, then go inside
-			if(itemsNeededList.contains(name)) {
+			if(itemsNeededList.contains(formattedName)) {
+				
+				count++;
+				
 				//click on add to cart whose i value is cucumber
 				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
 				
-				//break statement is not needed in List 
-				//break();
+				//adding break after found 3 veggies mentioned in array 
+				if(count==3) {
+					break;
+				}
+				
 			}
 		}
 
