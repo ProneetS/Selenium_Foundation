@@ -48,7 +48,7 @@ public class AddToCart {
 				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
 
 				// adding break after found 3 veggies mentioned in array
-				if (count == 3) {
+				if (count == veggies.length) {
 					break;
 				}
 
