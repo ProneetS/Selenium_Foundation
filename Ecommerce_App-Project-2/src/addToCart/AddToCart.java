@@ -25,8 +25,8 @@ public class AddToCart {
 			String name = products.get(i).getText();
 			
 			if(name.contains("Cucumber")) {
-				//click on add to cart
-				driver.findElements(By.xpath("//button[text()='ADD TO CART']"));
+				//click on add to cart whose i value is cucumber
+				driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
 			}
 		}
 
