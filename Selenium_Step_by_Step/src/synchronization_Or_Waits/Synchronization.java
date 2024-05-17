@@ -1,7 +1,9 @@
 package synchronization_Or_Waits;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +12,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Synchronization {
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws InterruptedException {
 
 		// invoking the chrome browser
 		WebDriver driver = new ChromeDriver();
+		
+		//applying implicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		// declaring vegetables array that we need
 		String[] veggies = { "Cucumber", "Brocolli", "Beetroot" };
@@ -32,6 +38,14 @@ public class Synchronization {
 		
 		//enter promo code rahulshettyacademy
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
+		
+		//click on apply button
+		driver.findElement(By.cssSelector("button.promoBtn")).click();
+		
+		//as Implicit wait is applied, the time taken by the apply button will get detect by selenium. If its found then success else failure.
+		//get the text 
+		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
+		
 		
 		
 
