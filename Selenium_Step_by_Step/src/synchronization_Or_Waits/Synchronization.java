@@ -22,6 +22,7 @@ public class Synchronization {
 		
 		//applying implicit wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 		// declaring vegetables array that we need
 		String[] veggies = { "Cucumber", "Brocolli", "Beetroot" };
@@ -37,6 +38,9 @@ public class Synchronization {
 		//click on proceed to checkout button (As it is a static text we can directly use text)
 		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
 		
+		//applying explicit wait on page change from "proceed to check out" to "apply promo code" page
+		w.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("input.promoCode")));
+		
 		//enter promo code rahulshettyacademy
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
 		
@@ -44,7 +48,7 @@ public class Synchronization {
 		driver.findElement(By.cssSelector("button.promoBtn")).click();
 		
 		//applying Explicit wait
-		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
+		
 		w.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("span.promoInfo"))); //wait until this specific element visible in your html DOM
 		
 		//get the text 
