@@ -23,6 +23,17 @@ public class Synchronization {
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		Thread.sleep(3000);
 		addItems(driver, veggies);
+		
+		//click on cart icon
+		driver.findElement(By.cssSelector("img[alt=\"Cart\"]")).click();
+		
+		//click on proceed to checkout button (As it is a static text we can directly use text)
+		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
+		
+		//enter promo code rahulshettyacademy
+		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
+		
+		
 
 	}
 
