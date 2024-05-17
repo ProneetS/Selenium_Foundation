@@ -3,66 +3,56 @@ package synchronization_Or_Waits;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Synchronization {
+public class ExplicitWaits {
 
-	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 
 		// invoking the chrome browser
 		WebDriver driver = new ChromeDriver();
-		
-		//applying implicit wait
+
+		// applying implicit wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		// declaring vegetables array that we need
 		String[] veggies = { "Cucumber", "Brocolli", "Beetroot" };
-	
 
 		// visit the url
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		addItems(driver, veggies);
-		
-		//click on cart icon
+
+		// click on cart icon
 		driver.findElement(By.cssSelector("img[alt=\"Cart\"]")).click();
-		
-		//click on proceed to checkout button (As it is a static text we can directly use text)
+
+		// click on proceed to checkout button (As it is a static text we can directly
+		// use text)
 		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
-		
-		//enter promo code rahulshettyacademy
+
+		// enter promo code rahulshettyacademy
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
-		
-		//click on apply button
+
+		// click on apply button
 		driver.findElement(By.cssSelector("button.promoBtn")).click();
-		
-		//applying Explicit wait
-		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
-		w.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("span.promoInfo"))); //wait until this specific element visible in your html DOM
-		
-		//get the text 
+
+		// as Implicit wait is applied, the time taken by the apply button will get
+		// detect by selenium. If its found then success else failure.
+		// get the text
 		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
-		
-		
-		
 
 	}
 
 	public static void addItems(WebDriver driver, String[] veggies) {
-		
+
 		int count = 0;
-		
+
 		// storing all the items to a list
 		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
 
-		
 		// iterating through all the product to find the location/index of cucumber
 		for (int i = 0; i < products.size(); i++) {
 
@@ -92,5 +82,4 @@ public class Synchronization {
 			}
 		}
 	}
-
 }
