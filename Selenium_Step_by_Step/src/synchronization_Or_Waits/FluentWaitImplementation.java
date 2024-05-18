@@ -45,6 +45,7 @@ public class FluentWaitImplementation {
 				    });
 				
 				System.out.println(driver.findElement(By.cssSelector("div[id='finish'] h4")).isDisplayed());
+				System.out.println(driver.findElement(By.cssSelector("div[id='finish'] h4")).getText());
 	}
 }
 
