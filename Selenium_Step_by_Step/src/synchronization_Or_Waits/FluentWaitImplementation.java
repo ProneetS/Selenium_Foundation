@@ -36,7 +36,11 @@ public class FluentWaitImplementation {
 				//Wait till the Hello World is displayed.
 				WebElement txt = wait.until(new Function<WebDriver, WebElement>() {
 				     public WebElement apply(WebDriver driver) {
-				         return driver.findElement(By.cssSelector("div[id='finish'] h4"));
+				    	 if(driver.findElement(By.cssSelector("div[id='finish'] h4")).isDisplayed()) {
+				    		 return driver.findElement(By.cssSelector("div[id='finish'] h4"));
+				    	 }
+				    	 else
+				          return null;
 				     }
 				    });
 				
