@@ -49,7 +49,7 @@ public class Synchronization {
 		
 		//applying Explicit wait
 		
-		w.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("span.promoInfo"))); //wait until this specific element visible in your html DOM
+		w.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("span.promoInfo"))); //wait until this specific element visible in your html DOM
 		
 		//get the text 
 		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
