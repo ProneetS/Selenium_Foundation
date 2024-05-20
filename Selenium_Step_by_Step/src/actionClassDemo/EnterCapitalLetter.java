@@ -25,7 +25,8 @@ public class EnterCapitalLetter {
 		WebElement searchBar = driver.findElement(By.id("twotabsearchtextbox"));
 		
 		//perform click and then enter letter by holding "shift" key (Become capital latter)
-		a.moveToElement(searchBar).click().keyDown(Keys.SHIFT).sendKeys("hello").build().perform();
+		//select the text by double clicking it
+		a.moveToElement(searchBar).click().keyDown(Keys.SHIFT).sendKeys("hello").doubleClick().build().perform();
 		
 		
 
