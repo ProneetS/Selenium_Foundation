@@ -34,5 +34,6 @@ public class EnterCapitalLetter {
 
 }
 
+//alternate of keyDown(Keys.SHIFT) is clickAndHold()
 
 //captcha is not handled yet. So run the code, enter the captcha, do not close the selenium chrome browser, run the code again
