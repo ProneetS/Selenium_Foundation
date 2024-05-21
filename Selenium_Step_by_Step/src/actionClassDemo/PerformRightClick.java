@@ -15,6 +15,9 @@ public class PerformRightClick {
 
 		// visit the amazon.com
 		driver.get("https://www.amazon.in/");
+		
+		//maximize the window
+		driver.manage().window().maximize();
 
 		// create Action class object.
 		Actions a = new Actions(driver);
