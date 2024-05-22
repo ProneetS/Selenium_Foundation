@@ -42,13 +42,15 @@ public class AssignmentWindowHandle {
 		driver.switchTo().window(childWind);
 		
 		//Grabbing the text and printing it in output
-		System.out.println(driver.findElement(By.cssSelector("div[class='example']")).getText());
+		//System.out.println(driver.findElement(By.cssSelector("div[class='example']")).getText());
+		System.out.println(driver.findElement(By.xpath("//div/h3")).getText());
 		
 		//return back to parent window
 		driver.switchTo().window(parentWind);
 		
 		//grabbing the text and printing it on output
-		System.out.println(driver.findElement(By.cssSelector("div[class='example'] h3")).getText());
+		//System.out.println(driver.findElement(By.cssSelector("div[class='example'] h3")).getText());
+		System.out.println(driver.findElement(By.xpath("//div[@id='content']/div/h3")).getText());
 		
 		//closing all windows
 		driver.quit();
