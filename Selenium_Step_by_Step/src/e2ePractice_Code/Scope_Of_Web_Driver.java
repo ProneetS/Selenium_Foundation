@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.Keys;
 
 public class Scope_Of_Web_Driver {
 
@@ -27,7 +28,8 @@ public class Scope_Of_Web_Driver {
 		
 		//click on each link in the column and check if pages are opening
 		for(int i = 1; i < columnDriver.findElements(By.tagName("a")).size(); i++) {
-			columnDriver.findElements(By.tagName("a")).get(i).click();
+			String clickonlinkTab = Keys.chord(Keys.CONTROL, Keys.ENTER); //this combination will open a link in separate tab
+			columnDriver.findElements(By.tagName("a")).get(i).sendKeys(clickonlinkTab); //here in sendKeys() we are telling that go to each link and open in separate tab
 		}
 	}
 
