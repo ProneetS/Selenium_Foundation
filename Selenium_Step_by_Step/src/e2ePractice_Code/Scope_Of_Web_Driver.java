@@ -1,5 +1,8 @@
 package e2ePractice_Code;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +11,7 @@ import org.openqa.selenium.Keys;
 
 public class Scope_Of_Web_Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		//invoking the browser
 		WebDriver driver = new ChromeDriver();
@@ -30,7 +33,20 @@ public class Scope_Of_Web_Driver {
 		for(int i = 1; i < columnDriver.findElements(By.tagName("a")).size(); i++) {
 			String clickonlinkTab = Keys.chord(Keys.CONTROL, Keys.ENTER); //this combination will open a link in separate tab
 			columnDriver.findElements(By.tagName("a")).get(i).sendKeys(clickonlinkTab); //here in sendKeys() we are telling that go to each link and open in separate tab
-		}
+			Thread.sleep(2000);
+		} //opens all the tab
+		
+		
+		Set<String> tabs = driver.getWindowHandles();
+		Iterator<String> it = tabs.iterator();
+			
+		while(it.hasNext()) {
+			driver.switchTo().window(it.next());
+			System.out.println(driver.getTitle());
+		} //iterate through each and every tab and gives the title.
+			
+			
+		
 	}
 
 }
