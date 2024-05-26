@@ -1,8 +1,12 @@
 package handlingCalendar;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class HandleCalendar {
 
@@ -11,6 +15,7 @@ public class HandleCalendar {
 		String monthNumber = "9";
 		String date = "25";
 		String year = "2028";
+		String[] expectedList= {monthNumber, date, year};
 		
 		//invoking browser
 		WebDriver driver = new ChromeDriver();
@@ -34,6 +39,17 @@ public class HandleCalendar {
 		
 		//select the date
 		driver.findElement(By.xpath("//abbr[text()='"+date+"']")).click();
+		
+		//get the calendar value shown in the UI and compare it through Assert
+		List<WebElement> actualList = driver.findElements(By.cssSelector(".react-date-picker__inputGroup__input"));
+		
+		//iterating to find the value and comparing through Assert
+		for(int i = 0; i < actualList.size(); i++) {
+			System.out.println(actualList.get(i).getAttribute("value"));
+			Assert.assertEquals(actualList.get(i).getAttribute("value"), expectedList[i]);
+		}
+		driver.quit();
+		
 
 	}
 
